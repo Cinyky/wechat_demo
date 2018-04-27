@@ -1,0 +1,28 @@
+<form bindsubmit="onFormSubmit">
+    <view class="mod-layer" bindtap="reply">
+        <view class="score gridXb">
+            <view class="score-area fr">
+                <input type="text" class="hidden" name="grade" value="{{score}}" />
+                <block wx:for="{{score_arr}}" wx:key="*this">
+                    <text class="iconfont score-star icon-favor{{item.ischeck == true ? 'fill' : ''}}" bindtap="onScoreTap" data-value="{{item.val}}"></text>
+                </block>
+            </view>
+            <view>
+                <text>评分</text>
+            </view>
+        </view>
+        <view class="input-text-box">
+            <textarea class="textarea" name="content" placeholder="写点什么吧..." auto-focus />
+        </view>
+        <view class="album-list clearfix">
+            <view class="album-item" data-index="{{index}}" catchtap="onDeleteImageTap" wx:for="{{imageList}}" wx:key="*this">
+                <image src="{{item}}" mode="aspectFill" class="album-item-img"></image>
+                <text class="iconfont icon-close"></text>
+            </view>
+            <view class="album-item album-item-add" bindtap="onChooseImageTap" hidden="{{imageList.length>=3}}"></view>
+        </view>
+    </view>
+    <view style="padding:40rpx;">
+        <button formType="submit" type="primary" hover-class="none" loading="{{submitIsLoading}}" disabled="{{buttonIsDisabled}}">提交保存</button>
+    </view>
+</form>

@@ -1,0 +1,19 @@
+<view class="view">
+    <view class="" wx:for="{{markers}}" wx:key="{{item.id}}">
+        <view class="">
+            <view class="address-list flex">
+                <view class="address-list-title">店名：</view>
+                <view class="sub">{{item.title}}</view>
+                <view class="fr">大约{{item.distance}}公里</view>
+            </view>
+            <view class="address-list gridXb flex">
+                <view class="address-list-title">地址：</view>
+                <view class="sub lineText">{{item.address}}</view>
+                <view class="address-list-go gridFourRadio green" data-name="{{item.title}}" data-address="{{item.address}}" data-longitude="{{item.longitude}}" data-latitude="{{item.latitude}}" data-id="{{item.id}}" bindtap="openLocation">地图
+                </view>
+                <view class="address-list-go gridFourRadio green" data-id="{{item.id}}" bindtap="tapDanYeIndex">查看
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,167 @@
+<import src="/pages/superHome/custom/tpl.wxml" />
+<import src="/wxParse/wxParse.wxml" />
+<wxs module="utils">
+    var getModularStyle = function(options) {
+        if (!options) return '';
+
+        var result = [];
+        if (options.backgroundSize) result.push('background-size: ' + options.backgroundSize);
+	 	if (options.backgroundRepeat) result.push('background-repeat: ' + options.backgroundRepeat);
+        if (options.backgroundColor) result.push('background-color: ' + options.backgroundColor);
+        if (options.backgroundImage) result.push('background-image: url(' + options.backgroundImage + ')');
+        if (options.backgroundPosition) result.push('background-position: ' + options.backgroundPosition);
+
+        if (options.padding) {
+            result.push('padding-left: ' + (options.padding.left * 2) + 'rpx');
+            result.push('padding-top: ' + (options.padding.top * 2) + 'rpx');
+            result.push('padding-right: ' + (options.padding.right * 2) + 'rpx');
+            result.push('padding-bottom: ' + (options.padding.bottom * 2) + 'rpx');
+        }
+        return result.join(';');
+    };
+
+    var getModularClass = function(options) {
+        if (!options) return '';
+
+        var result = [];
+        if (options.controlMargin) result.push('module-bottom-space');
+        if (options.textColor) result.push(options.textColor);
+
+        options.isContainerBackground = options.isContainerBackground !== false;
+        result.push(options.isContainerBackground ? 'containerBackground' : '');
+
+        return result.join(' ');
+    }
+
+    module.exports.getModularStyle = getModularStyle;
+    module.exports.getModularClass = getModularClass;
+</wxs><view class="page-cont"><view class="modular {{utils.getModularClass(config_options['dg152326561421'])}}" style="{{utils.getModularStyle(config_options['dg152326561421'])}}"><template is="dg-video" data="{{options:config_options['dg152326561421']}}"></template></view><view class="modular {{utils.getModularClass(config_options['dg-diandanye-shop-msg-box'])}}" style="{{utils.getModularStyle(config_options['dg-diandanye-shop-msg-box'])}}">
+<!-- <view class="modular {{config_options['dg-diandanye-shop-msg-box']['space_style']}}"> -->
+  <view class="modular-container dyN-shop-massage">
+      <view class="flex">
+          <image class="dyN-shop-img" src="{{dgDianDanYe_info.logo_url}}" mode="aspectFill"></image>
+          <view class="sub dyN-msg-title">{{dgDianDanYe_info.name}}</view>
+      </view>
+      <view class="grey mt10 f14">{{dgDianDanYe_info.address}} <text class="hidden">大约0.6公里</text></view>
+  </view>
+<!-- </view> -->
+</view><view class="modular {{utils.getModularClass(config_options['dg-diandanye-shop-photos'])}}" style="{{utils.getModularStyle(config_options['dg-diandanye-shop-photos'])}}">
+<!-- <view class="modular {{config_options['dg-diandanye-shop-photos']['space_style']}}"> -->
+  <view class="modular-container dyN-shop-severs">
+      <view class="modular-title dyN-msg-item" catchtap="dgDianDanYeTapShowShop" wx:if='{{config_options["dg-diandanye-shop-photos"].isShowTitleBar}}'>
+        <view class="modular-title-text">{{config_options["dg-diandanye-shop-photos"].titleBarText || dgDanye_name.showName}}</view>
+        <view class="modular-title-more arrowR"></view>
+      </view>
+      <view class="dyN-shop-img-show" catchtap="dgDianDanYeTapPreviewImage" data-images="{{dgDianDanYe_info.imglist}}">
+          <view class="dyN-shop-img-item" wx:for="{{dgDianDanYe_info.imglist}}" wx:key="{{item}}" hidden="{{index >= 2 ? true: false}}">
+              <view class="dyN-img-item">
+                  <image class="scale-rule" src="{{item}}" mode="aspectFill"></image>
+              </view>
+              <view class="mt5 hidden">门面展示</view>
+          </view>
+          <view class="grey" wx:if="{{dgDianDanYe_info.imglist.length == 0 ? true : false}}">^v^店主未设置相册！</view>
+      </view>
+  </view>
+<!-- </view> -->
+</view><view class="modular {{utils.getModularClass(config_options['dg178822515'])}}" style="{{utils.getModularStyle(config_options['dg178822515'])}}"><template is="dg-link-group" data="{{options:config_options['dg178822515']}}"></template></view><view class="modular {{utils.getModularClass(config_options['dg828919379'])}}" style="{{utils.getModularStyle(config_options['dg828919379'])}}"><template is="dg-image" data="{{options:config_options['dg828919379']}}"></template></view><view class="modular {{utils.getModularClass(config_options['dg608341846'])}}" style="{{utils.getModularStyle(config_options['dg608341846'])}}"><template is="dg-carousel" data="{{options:config_options['dg608341846']}}"></template></view><view class="modular {{utils.getModularClass(config_options['dg-cmsB-article-list'])}}" style="{{utils.getModularStyle(config_options['dg-cmsB-article-list'])}}">
+<!-- <view class="modular {{config_options['dg-cmsB-article-list']['space_style']}}"> -->
+  <view class="modular-container cmsB-article">
+    <view class="modular-title {{config_options['dg-cmsB-article-list']['title_line_style']}}" wx:if="{{config_options['dg-cmsB-article-list']['showTitle']}}">
+      <view class="modular-title-text">{{config_options['dg-cmsB-article-list']['store_list_title']}}</view>
+      <view class="modular-title-more arrowR" catchtap="dgBigCmsOnNavIndex" data-url="/pages/bigcms/index/index" wx:if="{{config_options['dg-cmsB-article-list']['is_show_more']}}">更多</view>  
+    </view>
+    <view class="cmsB-article-box" wx:for="{{dgBigCms_c_data}}" wx:key="index">
+      <view wx:if="{{item.typeid==1}}">
+        <view class="cmsB-article-list gridXb" catchtap="dgBigCmsOnNavigateTap" data-url="/pages/bigcms/article/article?id={{item.id}}&typeid={{item.typeid}}">
+          <view class="cmsB-article-cont">
+            <view class="cmsB-article-title">{{item.title}}</view>
+            <view class="grey f14">
+              <text>{{item.add_time}}</text>
+              <text class="ml10 iconfont icon-attention"> {{item.readnum}}</text>
+              <text class="ml10 iconfont icon-appreciate"> {{item.good_count}}</text>
+            </view>
+          </view>
+          <view class="cmsB-article-img">
+            <image class="scale-rule" src="{{item.imgurl}}" mode="aspectFill"></image>
+          </view>
+        </view>
+      </view>
+      <view wx:elif="{{item.typeid==2}}">
+        <view class="cmsB-article-list gridXb" catchtap="dgBigCmsOnNavigateTap" data-url="/pages/bigcms/article/article?id={{item.id}}&typeid={{item.typeid}}">
+          <view class="cmsB-article-cont">
+            <view class="cmsB-article-title">{{item.title}}</view>
+            <view class="grey f14">
+              <text>{{item.add_time}}</text>
+              <text class="ml10 iconfont icon-attention"> {{item.readnum}}</text>
+              <text class="ml10 iconfont icon-appreciate"> {{item.good_count}}</text>
+            </view>
+          </view>
+          <view class="cmsB-article-img">
+            <image class="scale-rule" src="{{item.imgurl}}" mode="aspectFill"></image>
+          </view>
+        </view>
+      </view>
+      <view wx:else>
+        <view class="cmsB-article-list video-list gridXb" catchtap="dgBigCmsOnNavigateTap" data-url="/pages/bigcms/article/article?id={{item.id}}&typeid={{item.typeid}}">
+          <view class="cmsB-article-cont">
+            <view class="cmsB-article-title">{{item.title}}</view>
+            <view class="grey f14">
+              <text>{{item.add_time}}</text>
+              <text class="ml10 iconfont icon-attention"> {{item.readnum}}</text>
+              <text class="ml10 iconfont icon-appreciate"> {{item.good_count}}</text>
+            </view>
+          </view>
+          <view class="cmsB-article-img">
+            <image class="scale-rule" src="{{item.imgurl}}" mode="aspectFill"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+<!-- </view> -->
+</view><view class="modular {{utils.getModularClass(config_options['dg-diandanye-shop-introduce'])}}" style="{{utils.getModularStyle(config_options['dg-diandanye-shop-introduce'])}}">
+<!-- <view class="modular {{config_options['dg-diandanye-shop-introduce']['space_style']}}"> -->
+  <view class="modular-container dyN-shop-severs">
+      <view class="modular-title dyN-msg-item" wx:if='{{config_options["dg-diandanye-shop-introduce"].isShowTitleBar}}'>
+        <view class="modular-title-text">{{config_options["dg-ditagMarkerstagMarkerstagMarkerstagMarkersandanye-shop-introduce"].titleBarText || dgDanye_name.introductionName}}</view>
+        <view class="modular-title-more"></view>
+      </view>
+      <view class="dyN-shop-introduce">
+          <template is="wxParse" data="{{wxParseData:dgDianDanYe_intro.nodes}}" />
+      </view>
+      <view class="dyN-shop-more hidden">查看更多</view>
+  </view>
+<!-- </view> -->
+</view><view class="modular {{utils.getModularClass(config_options['dg773663771'])}}" style="{{utils.getModularStyle(config_options['dg773663771'])}}"><template is="dg-link-group" data="{{options:config_options['dg773663771']}}"></template></view><view class="modular {{utils.getModularClass(config_options['dg-diandanye-shop-list-box'])}}" style="{{utils.getModularStyle(config_options['dg-diandanye-shop-list-box'])}}">
+<!-- <view class="modular {{config_options['dg-diandanye-shop-list-box']['space_style']}}"> -->
+  <view class="modular-container dyN-other-msg">
+      <view class="modular-title dyN-msg-item" catchtap="dgDianDanYeTapMakePhoneCall" data-phone-number="{{dgDianDanYe_info.service_tel}}" wx:if="{{dgDianDanYe_info.is_show_service_tel == '1' || dgDianDanYe_info.is_show_service_tel == 1}}">
+          <view class="modular-title-text">联系客服</view>
+          <text class="modular-title-more arrowR">{{dgDianDanYe_info.service_tel}}</text>
+      </view> 
+      <view class="modular-title dyN-msg-item" catchtap="dgDianDanYeTapMakePhoneCall" data-phone-number="{{dgDianDanYe_info.tel}}">
+          <view class="modular-title-text">联系电话</view>
+          <text class="modular-title-more arrowR">{{dgDianDanYe_info.tel}}</text>
+      </view>
+      <view class="modular-title dyN-msg-item">
+          <view class="modular-title-text">联系地址</view>
+					<text class="modular-title-more arrowR " style='max-width:60%' catchtap='tagMarkers'>{{dgDianDanYe_info.address}}</text>
+      </view>
+			<view class="page-section page-section-gap">
+			<map
+						style="width: 100%; height: 300px;"
+						latitude="{{dgDianDanYe_info.location.latitude}}"
+						longitude="{{dgDianDanYe_info.location.longitude}}"
+						address ="{{dgDianDanYe_info.address}}"
+						markers="{{dgDianDanYe_markers}}"
+						covers="{{dgDianDanYe_covers}}"
+			>
+			</map>
+			</view>
+      <view class="modular-title dyN-msg-item" catchtap="dgDianDanYeTapSelectList" wx:if="{{dgDianDanYe_isMultiStore}}">
+          <view class="modular-title-text">{{dgDanye_name.listName}}</view>
+          <text class="modular-title-more arrowR"></text>
+      </view>
+  </view>
+<!-- </view> -->
+</view></view><view class="asideFloatBox"><template is="dg-float-phone-btn" data="{{options:config_options['dg546689901']}}"></template><template is="dg-float-customer-btn" data="{{options:config_options['dg645184954']}}"></template></view>

@@ -1,0 +1,102 @@
+<!--pages/dian-ye/index-new.wxml-->
+<view class="shop-massage-topbg bgcolor"></view>
+<view class="shop-massage">
+    <view class="flex">
+        <view class="shop-img">
+            <image src="{{info.logo ? info.logo : (info.imglist.length > 0 ? info.imglist[0] : '/images/default.png')}}" mode="aspectFill"></image>
+        </view>
+        <view class="sub ml15">
+            <view class="shop-title f18">{{info.name}}</view>
+        </view>
+    </view>
+    <view class="grey mt10 f14">{{info.address}}{{info.distance ? '（大约' + info.distance + '公里）' : ''}}</view>
+</view>
+<view class="mb10 ml15 mr15 shop-severs">
+    <view class="arrowR" bindtap="tapShowShop">
+        <view class="msg-title f16">{{name.showName || '店铺展示'}}</view>
+    </view>
+    <view class="shop-img-show clearfix tc f14" bindtap="tapPreviewImage" data-images="{{info.imglist}}">
+        <view class="shop-img-item" wx:for="{{info.imglist}}" wx:key="{{item}}" hidden="{{index >= 2 ? true: false}}">
+            <view class="img-item mb5">
+                <image src="{{item}}" mode="aspectFill"></image>
+            </view>
+            <!-- <view>门面展示</view> -->
+        </view>
+        <view class="grey mt10 f14 fl" wx:if="{{info.imglist.length == 0 ? true : false}}">^v^店主未设置相册！</view>
+    </view>
+</view>
+<view class="mb10 other-msg ml15 mr15">
+    <view class="msg-item gridXb flex" hidden="{{info.is_show_service_tel != 1 ? true : false}}" bindtap="tapMakePhoneCall" data-phone-number="{{info.service_tel ? info.service_tel : info.tel}}">
+        <view class="msg-title mr10">联系客服</view>
+        <text class="arrowR sub tr grey f14">{{info.service_tel ? info.service_tel : info.tel}}</text>
+    </view>
+    <view class="msg-item gridXb flex" bindtap="tapMakePhoneCall" data-phone-number="{{info.tel}}">
+        <view class="msg-title mr10">联系电话</view>
+        <text class="arrowR sub tr grey f14">{{info.tel}}</text>
+    </view>
+    <view class="msg-item gridXb flex">
+        <view class="msg-title mr10">联系地址</view>
+        <view class="arrowR sub lineText tr grey f14" bindtap="tagMarkers">{{info.address}}</view>
+    </view>
+    <view class="msg-item gridXb flex" bindtap="tapSelectList" wx:if="{{isMultiStore}}">
+        <view class="msg-title mr10">{{name.listName || '店铺列表'}}</view>
+        <text class="arrowR sub"></text>
+    </view>
+</view>
+<view class="mb10 ml15 mr15 shop-severs" wx:if="{{isShowService}}">
+    <view class="msg-title f16">{{name.serviceName || '店铺服务'}}</view>
+    <view class="tab-detail-box green clearfix">
+        <text class="tags-alls lineText" wx:for="{{info.service}}" wx:key="{{index}}">{{item}}</text>
+    </view>
+    <view class="grey mt10 f14" wx:if="{{info.service.length == 0 ? true : false}}">尚无服务！</view>
+</view>
+<view class="mb10 ml15 mr15 shop-severs f14">
+    <view class="">
+        <view class="msg-title f16">{{name.introductionName || '店铺简介'}}</view>
+    </view>
+    <!-- style="max-height:200rpx;overflow:hidden;" -->
+    <view class="grey mt10">
+        <rich-text wx:if="{{canIUseRichText}}" nodes="{{info.intro}}"></rich-text>
+        <block wx:else>
+            <import src="../../wxParse/wxParse.wxml" />
+            <template is="wxParse" data="{{wxParseData:intro.nodes}}" />
+        </block>
+    </view>
+    <view class="tc">
+        <text class="arrowB_backup" style="position:relative;padding-right:40rpx;"></text>
+    </view>
+</view>
+<view class="mb10 ml15 mr15 shop-severs f14 {{isAli ? 'hidden' : ''}}" data-note="兼容处理支付宝小程序才隐藏的">
+    <view class="arrowR" bindtap="tapShowComment" data-id="{{info.id}}">
+        <view class="msg-title f16">{{name.evaluationName || '店铺评价'}}</view>
+    </view>
+    <view class="flex assess-item mt10 gridXb" wx:for="{{commentList}}" wx:key="{{item.id}}">
+        <view class="assess-user-img mr10">
+            <image src="{{item.headimgurl}}" mode="aspectFill"></image>
+        </view>
+        <view class="sub">
+            <view class="flex f16">
+                <view class="blue sub">{{item.nickname}}
+                    <text class="ml15 red">{{item.grade}}分</text>
+                </view>
+                <view class="grey f14">{{item.create_time}}</view>
+            </view>
+            <view class="grey mt10">{{item.content}}</view>
+            <view class="assess-img clearfix" bindtap="tapPreviewImage" data-images="{{item.imgs}}">
+                <view class="assess-show-img" wx:for="{{item.imgs}}" wx:for-item="image" wx:key="{{image}}">
+                    <image src="{{image}}" mode="aspectFill"></image>
+                </view>
+            </view>
+            <view class="reply mt5 mt10 mb10 f14 grey" wx:if="{{(item.reply_content || '') != '' ? true : false}}">
+                <text class="blue">店铺回复：</text>
+                <text>{{item.reply_content}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="grey mt10 f14" wx:if="{{commentList.length == 0 ? true : false}}">店铺初次开张，期待您的评价！</view>
+</view>
+
+<view class="m20 tc grey loading" wx:if="{{isShowLoading}}">
+    <text class="mr10 loading-icon"></text>
+    <text>正在加载中...</text>
+</view>

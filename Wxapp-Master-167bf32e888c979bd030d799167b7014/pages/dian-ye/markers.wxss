@@ -1,0 +1,57 @@
+.map {
+    position: absolute;
+    display: block;
+    width: 100%;
+    min-height: 100%;
+}
+
+.tab-sub {
+    line-height: 92rpx;
+    font-size: 36rpx;
+    position: relative;
+    /*background-color: #fff;*/
+}
+
+.tab-sub-active {
+    font-weight: bold;
+    color: #09bb07;
+}
+
+.tab-sub-active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 20%;
+    width: 60%;
+    height: 2px;
+    bottom: 0;
+}
+
+.none {
+    display: none;
+}
+
+.address-list {
+    padding: 18rpx 30rpx;
+    background: #fff;
+    line-height: 26px;
+}
+
+.address-list-title {
+    width: 120rpx;
+}
+
+.address-list-go {
+    padding: 0 20rpx;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.address-list-go::before {
+    border-color: #09bb07;
+}
+
+.address-list-go:active {
+    background: #09bb07;
+    color: #fff;
+}

@@ -1,0 +1,36 @@
+<!-- pages/dian-ye/comment.wxml -->
+<view class="flex msg-title">
+    <view class="sub f16 fstrong">店铺评价</view>
+    <view class="green" bindtap="tapAddComment" data-url="./comment-add">
+        <text class="iconfont icon-write"></text> 点评</view>
+</view>
+<view class="flex assess-item mt10 gridXb" wx:for="{{commentList}}" wx:key="{{item.id}}">
+    <view class="assess-user-img mr10">
+        <image src="{{item.headimgurl}}" mode="aspectFill"></image>
+    </view>
+    <view class="sub">
+        <view class="flex f16">
+            <view class="blue sub">{{item.nickname}}
+                <text class="ml15 red">{{item.grade}}分</text>
+            </view>
+            <view class="grey f14">{{item.create_time}}</view>
+        </view>
+        <view class="grey mt10">{{item.content}}</view>
+        <view class="assess-img clearfix" bindtap="tapPreviewImage" data-images="{{item.imgs}}">
+            <view class="assess-show-img" wx:for="{{item.imgs}}" wx:for-item="image" wx:key="{{item}}">
+                <image src="{{image}}" mode="aspectFill"></image>
+            </view>
+        </view>
+        <view class="reply mt5 mt10 mb10 f14 grey" wx:if="{{(item.reply_content || '') != '' ? true : false}}">
+            <text class="blue">店铺回复：</text>
+            <text>{{item.reply_content}}</text>
+        </view>
+    </view>
+</view>
+<view class="flex msg-title" wx:if="{{commentList.length == 0 ? true : false}}">
+    <view class="grey mt10 f14">没有更多了……</view>
+</view>
+<view class="m20 tc grey loading" wx:if="{{isShowLoading}}">
+    <text class="mr10 loading-icon"></text>
+    <text>正在加载中...</text>
+</view>

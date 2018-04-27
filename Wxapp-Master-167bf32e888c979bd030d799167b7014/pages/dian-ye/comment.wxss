@@ -1,0 +1,172 @@
+@import "/css/DuoguanDianDanYe/DuoguanDianDanYe-template-default.wxss";
+
+page {
+    font-size: 32rpx;
+}
+
+image {
+    width: 100%;
+    height: 100%;
+}
+
+.fstrong {
+    font-weight: bold;
+}
+
+.mod-layer {
+    background: #fff;
+    padding: 40rpx;
+}
+
+.input-text-box {
+    height: 300rpx;
+}
+
+.input-text-box textarea {
+    width: 100%;
+    height: 100%;
+    white-space: normal;
+}
+
+.score-star {
+    margin-left: 10rpx;
+}
+
+.score {
+    font-size: 36rpx;
+    line-height: 60rpx;
+    padding-bottom: 30rpx;
+}
+
+.textarea, .album-list {
+    margin-top: 30rpx;
+}
+
+.score-area {
+    font-size: 60rpx;
+}
+
+.album-item {
+    width: 19%;
+    padding-bottom: 19%;
+    margin-bottom: 1.25%;
+    float: left;
+    position: relative;
+    margin-right: 1.25%;
+}
+
+.album-item:nth-child(5n) {
+    margin-right: 0;
+}
+
+.album-item-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.icon-close {
+    background: rgba(0, 0, 0, 0.6);
+    width: 60rpx;
+    height: 60rpx;
+    font-size: 40rpx;
+    line-height: 60rpx;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    -webkit-transform: scale(0.6) translate(20%, -20%);
+    transform: scale(0.6) translate(20%, -20%);
+}
+
+.album-item-add {
+    outline: 1px solid #ddd;
+}
+
+.album-item-add:active {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.album-item-add::after, .album-item-add::before {
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    width: 30%;
+    height: 1px;
+    background: #ccc;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.album-item-add::before {
+    -webkit-transform: translate(-50%, -50%) rotate(90deg);
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.msg-title {
+    position: relative;
+    padding: 20rpx 30rpx;
+    background: #fff;
+}
+
+.assess-item {
+    padding: 20rpx 30rpx 0;
+    background: #fff;
+}
+
+.assess-user-img {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 12rpx;
+    overflow: hidden;
+}
+
+.assess-img {
+    padding: 20rpx 0;
+}
+
+.assess-show-img {
+    width: 32%;
+    padding-top: 32%;
+    position: relative;
+    margin-right: 2%;
+    float: left;
+}
+
+.assess-show-img image {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.assess-show-img:nth-child(3n+3) {
+    margin-right: 0;
+}
+
+.assess-show-img:nth-child(n+4) {
+    margin-top: 2%;
+}
+
+.reply {
+    padding: 24rpx 30rpx;
+    background: #f8f8f8;
+    position: relative;
+    line-height: 1.4;
+}
+
+.reply::before {
+    content: '';
+    display: block;
+    border-bottom: 16rpx solid #f8f8f8;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    position: absolute;
+    top: -5px;
+}

@@ -1,0 +1,11 @@
+<!--pages/dian-ye/img-show.wxml-->
+<view class="shop-severs mt15">
+    <view class="msg-title f16">{{title}}</view>
+    <view class="shop-img-show clearfix tc f14 mt5" data-images="{{info.imglist}}">
+        <view class="shop-img-item" wx:for="{{info.imglist}}" wx:key="{{item}}">
+            <view class="img-item">
+                <image src="{{item}}" mode="aspectFill" bindtap="previewImage" data-url="{{item}}"></image>
+            </view>
+        </view>
+    </view>
+</view>
