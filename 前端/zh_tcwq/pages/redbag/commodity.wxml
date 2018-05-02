@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="head">
+    <block wx:for="{{array}}" wx:key="{{*this}}" wx:for-item="item">
+      <view bindtap="select" class="{{activeindex==index?'select':''}}" data-index="{{index}}">{{item}}</view>
+    </block>
+  </view>
+  <block wx:for="{{store_shop}}" wx:key="{{*this}}" wx:for-item="item">
+    <view class="info rel">
+      <view class="rel">
+        <image class="ab img1 ud" mode="aspectFill" src="{{url}}{{item.lb_imgs}}"></image>
+      </view>
+      <view class="information">
+        <view class="gobyndsingle">{{item.goods_name}}</view>
+        <view>￥{{item.goods_cost}} \n
+          <block wx:if="{{item.is_show==2}}">
+            <text style="color:#ED414A;font-size:22rpx">(已下架)</text>
+          </block>
+        </view>
+        <view class="info_three">
+          <text bindtap="shelves" class="{{item.is_show==1?'back1':'back2'}}" data-id="{{item.id}}">上架</text>
+          <text bindtap="shelf" class="{{item.is_show==1?'back2':'back1'}}" data-id="{{item.id}}">下架</text>
+          <text bindtap="modify" class="back2" data-id="{{item.id}}">修改资料</text>
+        </view>
+      </view>
+      <view bindtap="delgood" class="cancel ab" data-id="{{item.id}}">
+        <image class="ab udlr" mode="aspectFill" src="../image/cancel.png"></image>
+      </view>
+    </view>
+  </block>
+</view>

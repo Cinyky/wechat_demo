@@ -1,0 +1,108 @@
+<view>
+  <view class="upload_logo rel">
+    <block wx:if="{{is_tel==1}}">
+      <view class="rel">
+        <block wx:if="{{logo.length==0}}">
+          <image bindtap="choose" class="ab udlr" mode="aspectFill" src="../image/logo.png"></image>
+        </block>
+        <block wx:if="{{logo.length>0}}">
+          <image bindtap="choose" class="ab udlr" mode="aspectFill" src="{{link}}{{logo[0]}}"></image>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{is_tel==2}}">
+      <view class="ab udlr">
+        <block wx:if="{{logo.length==0}}">
+          <image bindtap="choose" class="ab udlr" mode="aspectFill" src="../image/logo.png"></image>
+        </block>
+        <block wx:if="{{logo.length>0}}">
+          <image bindtap="choose" class="ab udlr" mode="aspectFill" src="{{link}}{{logo[0]}}"></image>
+        </block>
+      </view>
+    </block>
+    <block wx:if="{{is_tel==1}}">
+      <view class="yz_tel">
+        <view>验证手机号</view>
+        <view>
+          <text>{{num}}</text>
+          <block wx:if="{{num==null}}">
+            <button bindgetphonenumber="getPhoneNumber" openType="getPhoneNumber">获取手机号</button>
+          </block>
+          <block wx:if="{{num!=null}}">
+            <button style="background:#ccc;">验证成功</button>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+  <form bindreset="formReset" bindsubmit="formSubmit">
+    <view class="container">
+      <view class="bottom">
+        <text>公司地址</text>
+        <textarea name="address" placeholder="请定位您的位置信息，定位后可再进行编辑" value="{{address}}"></textarea>
+        <view bindtap="add" class="dw">
+          <image src="../image/hqwz.png"></image>
+          <view>定位</view>
+        </view>
+      </view>
+      <view class="main">
+        <view class="bd">
+          <view class="left">公司名称：</view>
+          <view class="right">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd">
+                <input class="weui-input" name="name" placeholder="请输入公司名称"></input>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="bd">
+          <view class="left">公司电话：</view>
+          <view class="right">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd">
+                <input class="weui-input" name="tel" placeholder="请输入公司电话" type="number"></input>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="bd">
+          <view class="left">所属行业：</view>
+          <view class="right">
+            <view class="weui-cell weui-cell_input" style="border:none">
+              <view class="weui-cell__bd">
+                <picker bindchange="bindPickerChange" range="{{nav}}" value="{{index}}">
+                  <view class="weui-select weui-select_in-select-after">{{nav[index]}}</view>
+                </picker>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="gg">
+        <view class="left">公司简介：</view>
+        <view class="right">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <textarea bindinput="gongg" class="weui-textarea" maxlength="100" name="details" placeholder="请输入公司简介" style="height: 4.5em" value="{{mdgg}}"></textarea>
+              <view class="weui-textarea-counter">
+                <text style="color:#f44444">{{zsnum}}</text>/100个字</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="foot">
+        <view>入驻黄页114</view>
+        <view>
+          <radio-group bindchange="radioChange" class="radio-group">
+            <block wx:for="{{items}}" wx:key="{{*this}}" wx:for-item="item">
+              <label class="radio">
+                <radio checked="{{item.checked}}" color="#ED414A" value="{{item.name}}"></radio>{{item.value}}\n</label>
+            </block>
+          </radio-group>
+        </view>
+        <button formType="submit">申请入驻</button>
+      </view>
+    </view>
+  </form>
+</view>
