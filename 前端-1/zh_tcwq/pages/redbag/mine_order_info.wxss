@@ -1,0 +1,10 @@
+.container { width: 100%; margin-top: 20rpx; }
+.container>wx-view { width: 100%; min-height: 80rpx; background: #fff; }
+.container>wx-view wx-view { width: 95%; height: 100%; margin: 0 auto 0; border-bottom: 1rpx solid #f7f7f7; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.container>wx-view wx-view wx-text { display: inline-block; line-height: 80rpx; font-size: 28rpx; }
+.container>wx-view wx-view wx-text:nth-child(1) { width: 25%; word-break:break-all; }
+.container>wx-view wx-view wx-text:nth-child(2) { color: #999; width: 75%; word-break:break-all; }
+.container>wx-view wx-view wx-text:nth-child(3) { width: 170rpx; height: 80%; background: #ed414a; right: 0; line-height: 64rpx; color: #fff; text-align: center; border-radius: 15rpx; }
+.address>wx-view{ display: inline-block; min-height: 80rpx; line-height: 80rpx; font-size: 28rpx; }
+.address>wx-view:nth-child(1){ width: 20%; }
+.address>wx-view:nth-child(2){ width: 80%; }

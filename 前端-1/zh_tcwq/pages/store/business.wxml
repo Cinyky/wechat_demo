@@ -1,0 +1,106 @@
+<view class="choice-bar">
+  <view bindtap="choiceItem" class="chioce-item chioce-item-first {{borbtm==2?'border-bottom':'border-bottom1'}}" data-item="2" hoverClass="click-once-opaque">{{activeTypeIndexname}}\n
+    <image class="icon-chioce" src="{{sortingChioceIcon}}"></image>
+  </view>
+  <view bindtap="choiceItem" class="chioce-item chioce-item-first {{borbtm==1?'border-bottom':'border-bottom1'}}" data-item="1" hoverClass="click-once-opaque">{{activeSortingIndexname}}\n
+    <image class="icon-chioce" src="{{districtChioceIcon}}"></image>
+  </view>
+  <view class="sorting-list{{!chioceSorting?' chioce-list-hide':' chioce-list-show'}}">
+    <block wx:for="{{typeList}}" wx:for-item="item">
+      <view catchtap="selectType" class="sorting-item" data-index="{{index}}" hoverClass="click-once" id="{{item.id}}">{{item.type_name}}</view>
+    </block>
+  </view>
+  <view class="sorting-list{{!chioceDistrict?' chioce-list-hide':' chioce-list-show'}}">
+    <block wx:for="{{sortingList}}" wx:for-item="item">
+      <view catchtap="selectSorting" class="sorting-item" data-index="{{index}}" hoverClass="click-once">{{item}}</view>
+    </block>
+  </view>
+</view>
+<view bindtap="hideAllChioce" class="mask" hidden="{{!chioceDistrict&&!chioceSorting&&!chioceFilter}}"></view>
+<view class="sxhd">
+  <view></view>
+</view>
+<view class="container">
+  <block wx:if="{{activeSortingIndex==0}}">
+    <block wx:for="{{store}}" wx:key="{{item.calue}}" wx:for-item="item">
+      <block wx:if="{{store.length!=0}}">
+        <view class="rel">
+          <view class="store ab udlr">
+            <view class="store_img">
+              <image mode="aspectFill" src="{{url}}{{item.logo}}"></image>
+            </view>
+            <view bindtap="store" class="store_info" data-id="{{item.id}}">
+              <view>{{item.store_name}}</view>
+              <view>{{item.start_time}}-{{item.end_time}}营业</view>
+              <view class="gobyndsingle">
+                <image mode="widthFix" src="../image/xiangqingdizhi@3x.png"></image>{{item.address}}</view>
+            </view>
+            <view bindtap="phone" class="ab ud phone" data-tel="{{item.tel}}">
+              <image mode="widthFix" src="../image/telephone.png"></image>
+              <text>{{item.distance}}km</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <block wx:if="{{refresh_top==true&&store.length!=0}}">
+      <view class="loading rel" style="height: 60rpx;">\n 没有更多了~\n</view>
+    </block>
+    <block wx:if="{{refresh_top==false&&store.length!=0}}">
+      <view class="loading rel" style="height: 60rpx;">
+        <image class="ab udlr" mode="widthFix" src="../image/loading.gif"></image>
+      </view>
+    </block>
+  </block>
+  <block wx:if="{{activeSortingIndex==1}}">
+    <block wx:for="{{store1}}" wx:key="{{item.calue}}" wx:for-item="item">
+      <block wx:if="{{store1.length!=0}}">
+        <view class="rel">
+          <view class="store ab udlr">
+            <view class="store_img">
+              <image mode="aspectFill" src="{{url}}{{item.logo}}"></image>
+            </view>
+            <view bindtap="store" class="store_info" data-id="{{item.id}}">
+              <view>{{item.store_name}}</view>
+              <view>{{item.start_time}}-{{item.end_time}}营业</view>
+              <view class="gobyndsingle">
+                <image mode="widthFix" src="../image/xiangqingdizhi@3x.png"></image>{{item.address}}</view>
+            </view>
+            <view bindtap="phone" class="ab ud phone" data-tel="{{item.tel}}">
+              <image mode="widthFix" src="../image/telephone.png"></image>
+              <text>{{item.distance}}km</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+  </block>
+  <block wx:if="{{activeSortingIndex==2}}">
+    <block wx:for="{{store2}}" wx:key="{{item.calue}}" wx:for-item="item">
+      <block wx:if="{{store2.length!=0}}">
+        <view class="rel">
+          <view class="store ab udlr">
+            <view class="store_img">
+              <image mode="aspectFill" src="{{url}}{{item.logo}}"></image>
+            </view>
+            <view bindtap="store" class="store_info" data-id="{{item.id}}">
+              <view>{{item.store_name}}</view>
+              <view>{{item.start_time}}-{{item.end_time}}营业</view>
+              <view class="gobyndsingle">
+                <image mode="widthFix" src="../image/xiangqingdizhi@3x.png"></image>{{item.address}}</view>
+            </view>
+            <view bindtap="phone" class="ab ud phone" data-tel="{{item.tel}}">
+              <image mode="widthFix" src="../image/telephone.png"></image>
+              <text>{{item.distance}}km</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+  </block>
+</view>
+<block wx:if="{{store.length==0}}">
+  <view class="none udlr">
+    <image mode="widthFix" src="../image/none_welfare.png"></image>
+  </view>
+</block>

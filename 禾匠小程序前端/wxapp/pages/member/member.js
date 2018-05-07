@@ -1,0 +1,2 @@
+var api=require("../../api.js"),app=getApp();Page({data:{},onLoad:function(n){app.pageOnLoad(this)},onReady:function(){},onShow:function(){var o=this;wx.showLoading({title:"加载中"}),app.request({url:api.user.member,method:"POST",success:function(n){wx.hideLoading(),0==n.code&&o.setData(n.data)}})},onHide:function(){},onUnload:function(){},onPullDownRefresh:function(){},onReachBottom:function(){}}); 
+ 			

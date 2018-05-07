@@ -1,0 +1,6 @@
+view {
+    width: 95%;
+    height: 100%;
+    padding-top: 10rpx;
+    margin: 0 auto 0;
+}

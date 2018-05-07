@@ -1,0 +1,18 @@
+.container{ width: 100%; overflow-x: hidden; }
+.head{ width: 100%; height: 80rpx; display: -webkit-box; display: -ms-flexbox; display: flex; }
+.head>wx-view{ -webkit-box-flex: 5; -ms-flex: 5; flex: 5; line-height: 80rpx; font-size: 26rpx; text-align: center; -webkit-box-sizing: border-box; box-sizing: border-box; background: #fff; }
+.border_one{ border-bottom: 4rpx solid #ED414A; color: #ED414A; }
+.border_two{ border-bottom: 4rpx solid #fff; }
+.page { background: #fff; margin-top: 20rpx; }
+.list{ width: 95%; height: 200rpx; margin: 0 auto 0; border-bottom: 1rpx solid #f7f7f7; }
+.list:last-child{ border: none; }
+.list>wx-view{ width: 100%; height: 140rpx; }
+.list>wx-view wx-view{ float: left; }
+.list>wx-view wx-view:nth-child(1){ width: 140rpx; height: 140rpx; }
+.list>wx-view wx-view:nth-child(2){ width: 500rpx; height: 140rpx; margin-left: 20rpx; }
+.list>wx-view wx-view wx-text{ display: block; }
+.list>wx-view wx-view wx-image{ width: 100%; height: 100%; }
+.list>wx-view wx-view wx-text:nth-child(1){ height: 60rpx; font-size: 36rpx; font-family:PingFangSC-Semibold; }
+.list>wx-view wx-view wx-text:nth-child(2){ height: 40rpx; font-size: 26rpx; line-height: 40rpx; color: #999; }
+.list>wx-view wx-view wx-text:nth-child(3){ height: 40rpx; font-size: 26rpx; line-height: 40rpx; color: #999; }
+.none{ height: 80rpx; line-height: 80rpx; font-size: 26rpx; color: #666; text-align: center; }
