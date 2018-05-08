@@ -1,0 +1,16 @@
+天气 https://restapi.amap.com/v3/weather/weatherInfo?key=30e332b3f33023e9463e50f5c661d1ad&city=310112&extensions=base&s=rsx&platform=WXJS&appname=30e332b3f33023e9463e50f5c661d1ad&sdkversion=1.2.0&logversion=2.0
+定位 https://restapi.amap.com/v3/geocode/regeo?key=30e332b3f33023e9463e50f5c661d1ad&location=121.38206%2C31.11325&extensions=all&s=rsx&platform=WXJS&appname=30e332b3f33023e9463e50f5c661d1ad&sdkversion=1.2.0&logversion=2.0
+    return 3840  https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=Views&&m=zh_tcwq&sign=ffdae4e1c9f046d70d86f5716cb36436
+    return https://wjm.5188youxi.com/      https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=Url2&&m=zh_tcwq&sign=636fd7dc5a0ece1dc87e25a8df363c9f
+    return https://wjm.5188youxi.com/attachment/  https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=Url&&m=zh_tcwq&sign=9b261c34df58c91d3663eba2e4f973e1
+小程序信息    https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=System&&m=zh_tcwq&sign=b71eab3bb1bd5f70f8048dc5a8926bf3
+商家列表    https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=Storelist&m=zh_tcwq&sign=335cf80efb6afd7c2606a74bd74bd092&cityname=%E5%AE%9D%E9%B8%A1
+    无返回值         https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=SaveHotCity&m=zh_tcwq&sign=7fce7189dd0348d038a4bd038348dbf6&cityname=%E5%AE%9D%E9%B8%A1&user_id=50
+    获取 uid        https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=openid&m=zh_tcwq&sign=71c6d64c5a735af481e0987a42cfb030&code=001aJpmI1rq5m80STwkI15JomI1aJpmc
+    return 15      https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=Num&&m=zh_tcwq&sign=1a1d442c58d6dbc6f3890bf0d8a68035
+    新闻相关               https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=news&m=zh_tcwq&sign=1fa8240b0f33d13adb9265dfa930321d&cityname=%E5%AE%9D%E9%B8%A1
+地图    https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=map&m=zh_tcwq&sign=c001a068def9b07cfffa8a1b289c2024&op=31.11325%2C121.38206
+login        https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=Login&m=zh_tcwq&sign=161c75556754368c68295d3fe70e1371&openid=oPzlG4-nzNMnsJvJW99e_m04eEuc&img=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FPiajxSqBRaEJZSBodjan8MibUTFpL1ZQaVmlgNqegcwRKykVMZg21We7rcKbtp2Yp7exRMcMOV2tNwlnhA8E8PSg%2F132&name=Cinyky
+列表        https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=list2&m=zh_tcwq&sign=16f25686dc4ac90b2cc9e540254f89e7&page=1&cityname=%E5%AE%9D%E9%B8%A1
+ 获取广告       https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=GetNav&&m=zh_tcwq&sign=6b548d631369c806c3a72971ad5f50c4
+ 广告详情           https://wjm.5188youxi.com/app/index.php?i=4&t=0&v=1.0&from=wxapp&c=entry&a=wxapp&do=Ad&m=zh_tcwq&sign=4d7f684006c63d8f2a8c3344feea0cf4&cityname=%E5%AE%9D%E9%B8%A1
