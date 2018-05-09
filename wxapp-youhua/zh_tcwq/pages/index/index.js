@@ -181,32 +181,37 @@ Page({
             fxzuid: a
         });
         var n = this;
-        wx.getLocation({
-            type: "wgs84",
-            success: function(t) {
-                t.latitude, t.longitude, t.speed, t.accuracy;
-            }
-        }), wx.getSystemInfo({
-            success: function(t) {
-                n.setData({
-                    windowHeight: t.windowHeight
-                }), console.log(t);
-            }
-        }), app.util.request({
-            url: "entry/wxapp/Url2",
-            cachetime: "0",
-            success: function(t) {
-                wx.setStorageSync("url2", t.data);
-            }
-        }), app.util.request({
-            url: "entry/wxapp/Url",
-            cachetime: "0",
-            success: function(t) {
-                console.log(t), wx.setStorageSync("url", t.data), n.setData({
-                    url: t.data
-                });
-            }
-        }), n.reload();
+        
+        // wx.getLocation({
+        //     type: "wgs84",
+        //     success: function(t) {
+        //         t.latitude, t.longitude, t.speed, t.accuracy;
+        //     }
+        // }), 
+        // wx.getSystemInfo({
+        //     success: function(t) {
+        //         n.setData({
+        //             windowHeight: t.windowHeight
+        //         }), console.log(t);
+        //     }
+        // }), 
+        // app.util.request({
+        //     url: "entry/wxapp/Url2",
+        //     cachetime: "0",
+        //     success: function(t) {
+        //         wx.setStorageSync("url2", t.data);
+        //     }
+        // }), 
+        // app.util.request({
+        //     url: "entry/wxapp/Url",
+        //     cachetime: "0",
+        //     success: function(t) {
+        //         console.log(t), wx.setStorageSync("url", t.data), n.setData({
+        //             url: t.data
+        //         });
+        //     }
+        // }), 
+        n.reload();
     },
     reload: function(t) {
         var c = this, i = this.data.fxzuid;
