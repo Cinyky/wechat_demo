@@ -1,41 +1,21 @@
 {
     "pages": [
+        
         "zh_tcwq/pages/index/index",
-        "zh_tcwq/pages/distribution/yaoqing",
-        "zh_tcwq/pages/distribution/wdtd",
-        "zh_tcwq/pages/distribution/symx",
-        "zh_tcwq/pages/distribution/fxyj",
-        "zh_tcwq/pages/distribution/txmx",
-        "zh_tcwq/pages/distribution/jrhhr",
         "zh_tcwq/pages/index/city",
-        "zh_tcwq/pages/logs/city_man",
-        "zh_tcwq/pages/yellow_page/settled",
-        "zh_tcwq/pages/yellow_page/yellow",
-        "zh_tcwq/pages/yellow_page/yellowinfo",
-        "zh_tcwq/pages/yellow_page/releace",
-        "zh_tcwq/pages/yellow_page/active",
-        "zh_tcwq/pages/yellow_page/activeinfo",
-        "zh_tcwq/pages/yellow_page/yellowtype",
-        "zh_tcwq/pages/car/car",
-        "zh_tcwq/pages/settled/settled",
-        "zh_tcwq/pages/content/content",
-        "zh_tcwq/pages/partner/partner",
-        "zh_tcwq/pages/infodetial/infodetial",
-        "zh_tcwq/pages/fabu/edit/edit",
+        "zh_tcwq/pages/index/search",
+
+        "zh_tcwq/pages/type/type",
         "zh_tcwq/pages/fabu/fabu/fabu",
-        "zh_tcwq/pages/sellerinfo/sellerinfo",
-        "zh_tcwq/pages/marry/marry",
-        "zh_tcwq/pages/handinfo/handinfo",
-        "zh_tcwq/pages/secondhand/secondhand",
-        "we7/pages/index/index",
-        "we7/pages/user/index/index",
+        "zh_tcwq/pages/fabu/knows/knows",
+        "zh_tcwq/pages/fabu/edit/edit",
+
         "zh_tcwq/pages/store/store",
         "zh_tcwq/pages/store/business",
         "zh_tcwq/pages/store/help",
-        "zh_tcwq/pages/notice/notice",
-        "zh_tcwq/pages/Collection/Collection",
-        "zh_tcwq/pages/fabu/knows/knows",
+
         "zh_tcwq/pages/logs/logs",
+        "zh_tcwq/pages/logs/city_man",
         "zh_tcwq/pages/logs/publish",
         "zh_tcwq/pages/logs/index",
         "zh_tcwq/pages/logs/income",
@@ -47,42 +27,124 @@
         "zh_tcwq/pages/logs/mine_car",
         "zh_tcwq/pages/logs/order_info",
         "zh_tcwq/pages/logs/hxorder",
-        "zh_tcwq/pages/shun/shun",
-        "zh_tcwq/pages/shun/shunfabu/shunfabu",
-        "zh_tcwq/pages/shun/shuninfo/shuninfo",
-        "zh_tcwq/pages/shun/shuninfo2/shuninfo2",
-        "zh_tcwq/pages/message/message",
-        "zh_tcwq/pages/message/footprint",
-        "zh_tcwq/pages/message/release",
-        "zh_tcwq/pages/message/message_info",
-        "zh_tcwq/pages/mypost/modify",
-        "zh_tcwq/pages/mypost/mypost",
-        "zh_tcwq/pages/sellerinfo/shop",
-        "zh_tcwq/pages/sellerinfo/place_order",
-        "zh_tcwq/pages/sellerinfo/good_info",
-        "zh_tcwq/pages/redbag/redinfo/redinfo",
-        "zh_tcwq/pages/redbag/sent",
-        "zh_tcwq/pages/redbag/welfare",
-        "zh_tcwq/pages/redbag/redbag",
-        "zh_tcwq/pages/redbag/merchant",
-        "zh_tcwq/pages/redbag/customer/customer",
-        "zh_tcwq/pages/redbag/wallet/wallet",
-        "zh_tcwq/pages/redbag/modify",
-        "zh_tcwq/pages/redbag/commodity",
-        "zh_tcwq/pages/redbag/mine_order",
-        "zh_tcwq/pages/redbag/mine_order_info",
-        "zh_tcwq/pages/yellow_page/mine_yellow",
-        "zh_tcwq/pages/redbag/redinfo/see_rob",
-        "zh_tcwq/pages/type/type",
-        "zh_tcwq/pages/spzx/spzx",
-        "zh_tcwq/pages/spzx/spzxinfo",
-        "zh_tcwq/pages/index/search",
-        "zh_tcwq/pages/qd/qd",
-        "zh_tcwq/pages/qd/pm",
-        "zh_tcwq/pages/integral/integralinfo/integralinfo",
-        "zh_tcwq/pages/integral/record/record",
-        "zh_tcwq/pages/integral/integral",
-        "zh_tcwq/pages/integral/myintegral"
+        
+        "zh_tcwq/pages/notice/notice",
+        "zh_tcwq/pages/Collection/Collection",
+        "zh_tcwq/pages/car/car",
+        
+        "zh_tcwq/pages/settled/settled",
+        "zh_tcwq/pages/marry/marry",
+        "zh_tcwq/pages/handinfo/handinfo",
+        "zh_tcwq/pages/secondhand/secondhand",
+        "zh_tcwq/pages/content/content",
+        "zh_tcwq/pages/partner/partner",
+        "zh_tcwq/pages/infodetial/infodetial",
+
+        "we7/pages/index/index",
+        "we7/pages/user/index/index"
+        
+    ],
+    "subpackages":[
+        {
+            "root": "zh_tcwq/pages/distribution/",
+            "pages":[
+                "yaoqing",
+                "wdtd",
+                "symx",
+                "fxyj",
+                "txmx",
+                "jrhhr"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/yellow_page/",
+            "pages":[
+                "settled",
+                "yellow",
+                "yellowinfo",
+                "releace",
+                "active",
+                "activeinfo",
+                "yellowtype",
+                "mine_yellow"
+            ]
+        },
+       
+        {
+            "root": "zh_tcwq/pages/shun/",
+            "pages":[
+                "shun",
+                "shunfabu/shunfabu",
+                "shuninfo/shuninfo",
+                "shuninfo2/shuninfo2"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/sellerinfo/",
+            "pages":[
+                "shop",
+                "place_order",
+                "good_info",
+                "sellerinfo"
+            ]
+        },
+     
+        {
+            "root": "zh_tcwq/pages/message/",
+            "pages":[
+                "message",
+                "footprint",
+                "release",
+                "message_info"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/mypost/",
+            "pages":[
+                "modify",
+                "mypost"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/redbag/",
+            "pages":[
+                "redinfo/redinfo",
+                "sent",
+                "welfare",
+                "redbag",
+                "merchant",
+                "customer/customer",
+                "wallet/wallet",
+                "modify",
+                "commodity",
+                "mine_order",
+                "mine_order_info",
+                "redinfo/see_rob"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/spzx/",
+            "pages":[
+                "spzx",
+                "spzxinfo"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/qd/",
+            "pages":[
+                "qd",
+                "pm"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/integral/",
+            "pages":[
+                "integralinfo/integralinfo",
+                "record/record",
+                "integral",
+                "myintegral"
+            ]
+        }
     ],
     "window": {
         "backgroundTextStyle": "light",

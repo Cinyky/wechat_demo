@@ -1,6 +1,10 @@
 App({
-    onLaunch: function() {},
-    onShow: function() {},
+    onLaunch: function() {
+        console.log("cyylog-- onLoad："+new Date())
+    },
+    onShow: function() {
+        console.log("cyylog-- onShow"+new Date())
+    },
     onHide: function() {
         console.log(getCurrentPages());
     },
