@@ -1,0 +1,180 @@
+<view class="header">
+    <image class="header_back" src="../image/background2.png"></image>
+    <view class="header_box">
+        <view class="header_set">
+            <image bindtap="address" src="../image/set.png"></image>
+        </view>
+        <navigator class="header_set1" url="../qd/qd" wx:if="{{qdset[0].is_open=='1'}}">
+            <image src="../image/qdimg.png"></image>
+            <view>我要签到</view>
+        </navigator>
+        <navigator class="header_set2" url="../integral/myintegral" wx:if="{{System.is_jf==1}}">
+            <image src="../image/jifen.png"></image>
+            <view>我的积分</view>
+        </navigator>
+        <view class="flex3">
+            <image class="picture" src="{{avatarUrl}}"></image>
+            <view class="header_name">{{nickName}}</view>
+        </view>
+    </view>
+</view>
+<view class="list">
+    <view class="list_content">
+        <view class="list_top flex-bet">
+            <view class="list_all flex-center">
+                <image class="list_allimg" src="../image/order.png"></image>
+                <view class="list_alltext">我的订单</view>
+            </view>
+            <view bindtap="order" class="list_alllist flex-center">
+                <view>查看全部订单</view>
+                <image class="list_right" src="../image/huise@2x.png"></image>
+            </view>
+        </view>
+        <view class="list_fukuan flex-bet">
+            <view bindtap="payment" class="flex3 list_collet">
+                <image class="list_fukuanimg" src="../image/collet.png"></image>
+                <view class="">待付款</view>
+            </view>
+            <view bindtap="payment_one" class="flex3 list_collet">
+                <image class="list_fukuanimg" src="../image/fahuo.png"></image>
+                <view class="">待发货</view>
+            </view>
+            <view bindtap="payment_two" class="flex3 list_collet">
+                <image class="list_fukuanimg2" src="../image/zhangdan.png"></image>
+                <view class="">待收货</view>
+            </view>
+            <view bindtap="payment_three" class="flex3 list_collet">
+                <image class="list_fukuanimg4" src="../image/huowu.png"></image>
+                <view class="">已完成</view>
+            </view>
+            <view bindtap="payment_four" class="flex3 list_collet">
+                <image class="list_fukuanimg3" src="../image/tuikuan.png"></image>
+                <view class="">退款/售后</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="banner">
+    <view bindtap="my_post" class="banner_list flex-bet">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/card.png"></image>
+            <view class="list_alltext">我发布的{{System.tzmc}}</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <view class="banner_text">小技能,赚大钱</view>
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="tchhr" class="banner_list flex-bet" wx:if="{{System.is_hhr==1}}">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/qiuzhi.png"></image>
+            <view class="list_alltext">我的合伙人</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="mine_car" class="banner_list flex-bet" wx:if="{{System.is_pcfw==1}}">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/mine_car.png"></image>
+            <view class="list_alltext">我的拼车</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="collection" class="banner_list flex-bet">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/wujiao.png"></image>
+            <view class="list_alltext">我的收藏</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="wallet" class="banner_list flex-bet">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/qianbao.png"></image>
+            <view class="list_alltext">我的钱包</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="yellow_page" class="banner_list flex-bet" wx:if="{{System.is_pageopen==1}}">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/mine_yellow.png"></image>
+            <view class="list_alltext">我的114</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="jfsc" class="banner_list flex-bet" wx:if="{{System.is_jf==1}}">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/welfare.png"></image>
+            <view class="list_alltext">积分商城</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+</view>
+<view class="banner">
+    <view bindtap="content" class="banner_list flex-bet">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/kefu.png"></image>
+            <view class="list_alltext">联系客服</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <view class="banner_text">有疑问请找我</view>
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="help" class="banner_list flex-bet">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/help.png"></image>
+            <view class="list_alltext">帮助中心</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <view class="banner_text"></view>
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="about" class="banner_list flex-bet">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/about.png"></image>
+            <view class="list_alltext">关于我们</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <view class="banner_text"></view>
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="settled" class="banner_list flex-bet" wx:if="{{System.is_rz=='1'}}">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/feiji.png"></image>
+            <view class="list_alltext">我要入驻</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <view class="banner_text">轻松合作,商机无限</view>
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+</view>
+<view class="banner">
+    <view bindtap="logs_store" class="banner_list flex-bet">
+        <view class="list_all flex-center">
+            <image class="list_allimg" src="../image/selle.png"></image>
+            <view class="list_alltext">商家入口</view>
+        </view>
+        <view class="list_alllist flex-center">
+            <view class="banner_text"></view>
+            <image class="list_right" src="../image/huise@2x.png"></image>
+        </view>
+    </view>
+</view>
+<view bindtap="jump" class="footer">
+    <image src="{{url}}{{bq_logo}}"></image>
+    <text>{{support}}</text>
+</view>
