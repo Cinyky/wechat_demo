@@ -1,30 +1,50 @@
 {
     "pages": [
+        
         "zh_tcwq/pages/index/index",
-        "we7/pages/index/index",
+        "zh_tcwq/pages/index/city",
+        "zh_tcwq/pages/index/search",
+
         "zh_tcwq/pages/type/type",
         "zh_tcwq/pages/fabu/fabu/fabu",
+        "zh_tcwq/pages/fabu/knows/knows",
+        "zh_tcwq/pages/fabu/edit/edit",
+
         "zh_tcwq/pages/store/store",
-        "zh_tcwq/pages/logs/logs"
+        "zh_tcwq/pages/store/business",
+        "zh_tcwq/pages/store/help",
+
+        "zh_tcwq/pages/logs/logs",
+        "zh_tcwq/pages/logs/city_man",
+        "zh_tcwq/pages/logs/publish",
+        "zh_tcwq/pages/logs/index",
+        "zh_tcwq/pages/logs/income",
+        "zh_tcwq/pages/logs/detailed",
+        "zh_tcwq/pages/logs/cash",
+        "zh_tcwq/pages/logs/order",
+        "zh_tcwq/pages/logs/bbaa",
+        "zh_tcwq/pages/logs/system",
+        "zh_tcwq/pages/logs/mine_car",
+        "zh_tcwq/pages/logs/order_info",
+        "zh_tcwq/pages/logs/hxorder",
+        
+        "zh_tcwq/pages/notice/notice",
+        "zh_tcwq/pages/Collection/Collection",
+        "zh_tcwq/pages/car/car",
+        
+        "zh_tcwq/pages/settled/settled",
+        "zh_tcwq/pages/marry/marry",
+        "zh_tcwq/pages/handinfo/handinfo",
+        "zh_tcwq/pages/secondhand/secondhand",
+        "zh_tcwq/pages/content/content",
+        "zh_tcwq/pages/partner/partner",
+        "zh_tcwq/pages/infodetial/infodetial",
+
+        "we7/pages/index/index",
+        "we7/pages/user/index/index"
+        
     ],
     "subpackages":[
-        {
-            "root": "zh_tcwq/pages/",
-            "pages":[
-                "index/city",
-                "notice/notice",
-                "Collection/Collection",
-                "car/car",
-                "index/search",
-                "settled/settled",
-                "marry/marry",
-                "handinfo/handinfo",
-                "secondhand/secondhand",
-                "content/content",
-                "partner/partner",
-                "infodetial/infodetial"
-            ]
-        },
         {
             "root": "zh_tcwq/pages/distribution/",
             "pages":[
@@ -34,7 +54,6 @@
                 "fxyj",
                 "txmx",
                 "jrhhr"
-                
             ]
         },
         {
@@ -50,43 +69,7 @@
                 "mine_yellow"
             ]
         },
-        {
-            "root": "zh_tcwq/pages/store/",
-            "pages":[
-                "business",
-                "help"
-            ]
-        },
-        {
-            "root": "we7/pages/",
-            "pages":[
-                "user/index/index"
-            ]
-        },
-        {
-            "root": "zh_tcwq/pages/fabu/",
-            "pages":[
-                "knows/knows",
-                "edit/edit"
-            ]
-        },
-        {
-            "root": "zh_tcwq/pages/logs/",
-            "pages":[
-                "city_man",
-                "publish",
-                "index",
-                "income",
-                "detailed",
-                "cash",
-                "order",
-                "bbaa",
-                "system",
-                "mine_car",
-                "order_info",
-                "hxorder"
-            ]
-        },
+       
         {
             "root": "zh_tcwq/pages/shun/",
             "pages":[
