@@ -188,41 +188,14 @@ Page({
         n.setData({
             url: url
         });
-        // wx.getLocation({
-        //     type: "wgs84",
-        //     success: function(t) {
-        //         t.latitude, t.longitude, t.speed, t.accuracy;
-        //     }
-        // }), 
-        // wx.getSystemInfo({
-        //     success: function(t) {
-        //         n.setData({
-        //             windowHeight: t.windowHeight
-        //         }), console.log(t);
-        //     }
-        // }), 
-        // app.util.request({
-        //     url: "entry/wxapp/Url2",
-        //     cachetime: "0",
-        //     success: function(t) {
-        //         wx.setStorageSync("url2", t.data);
-        //     }
-        // }), 
-        // app.util.request({
-        //     url: "entry/wxapp/Url",
-        //     cachetime: "0",
-        //     success: function(t) {
-        //         console.log(t), wx.setStorageSync("url", t.data), n.setData({
-        //             url: t.data
-        //         });
-        //     }
-        // }), 
+        n.getNav();
+       
         n.reload();
     },
     reload: function(t) {
         var c = this, i = this.data.fxzuid;
         console.log(i)
-        , wx.login({
+        wx.login({
             success: function(t) {
                 var e = t.code;
                 wx.setStorageSync("code", e), wx.getUserInfo({
@@ -277,109 +250,33 @@ Page({
                     }
                 });
             }
-        })
-        , wx.getLocation({
-            type: "wgs84",
-            success: function(t) {
-                wx.setStorageSync("Location", t);
-                var e = t.latitude + "," + t.longitude;
-                app.util.request({
-                    url: "entry/wxapp/map",
-                    cachetime: "0",
-                    data: {
-                        op: e
-                    },
-                    success: function(i) {
-                        console.log(i), app.util.request({
-                            url: "entry/wxapp/System",
-                            cachetime: "0",
-                            success: function(t) {
-                                console.log(t), "1" == t.data.dw_more && c.setData({
-                                    dwcity: i.data.result.address_component.district
-                                }), "2" == t.data.dw_more && c.setData({
-                                    dwcity: i.data.result.address_component.city
-                                });
-                                var e = t.data.gd_key;
-                                "" == e && wx.showModal({
-                                    title: "配置提示",
-                                    content: "请在后台配置高德地图的key",
-                                    showCancel: !0,
-                                    cancelText: "取消",
-                                    confirmText: "确定",
-                                    success: function(t) {},
-                                    fail: function(t) {},
-                                    complete: function(t) {}
-                                }), new (require("../amap-wx.js").AMapWX)({
-                                    key: e
-                                }).getWeather({
-                                    success: function(t) {
-                                        var e, a, n = t.liveData.city, i = t.liveData.weather, o = t.liveData.reporttime.slice(0, 10), s = (0 == (e = new Date(o)).getDay() && (a = "星期日"), 
-                                        1 == e.getDay() && (a = "星期一"), 2 == e.getDay() && (a = "星期二"), 3 == e.getDay() && (a = "星期三"), 
-                                        4 == e.getDay() && (a = "星期四"), 5 == e.getDay() && (a = "星期五"), 6 == e.getDay() && (a = "星期六"), 
-                                        a), r = t.temperature.data;
-                                        c.setData({
-                                            area: n,
-                                            reporttime: o,
-                                            weather: i,
-                                            w1: s,
-                                            temperature: r
-                                        });
-                                    },
-                                    fail: function(t) {}
-                                });
-                                var a = [ "最新信息" ];
-                                "1" == t.data.is_sjrz && a.push("热门商家"), "1" == t.data.is_pageopen && a.push("黄页114"), 
-                                "1" == t.data.is_pcfw && a.push("顺风车"), console.log(a), wx.setStorageSync("System", t.data), 
-                                1 == t.data.many_city ? (wx.setStorageSync("city", t.data.cityname), c.setData({
-                                    city: t.data.cityname
-                                })) : (console.log(wx.getStorageSync("city_type")), 1 != wx.getStorageSync("city_type") ? (wx.setStorageSync("city", c.data.dwcity), 
-                                c.setData({
-                                    city: c.data.dwcity
-                                })) : (c.setData({
-                                    city: wx.getStorageSync("city")
-                                }), console.log("choosecity")));
-                                var n = wx.getStorageSync("city");
-                                console.log(n), app.util.request({
-                                    url: "entry/wxapp/SaveHotCity",
-                                    cachetime: "0",
-                                    data: {
-                                        cityname: n,
-                                        user_id: wx.getStorageSync("users").id
-                                    },
-                                    success: function(t) {
-                                        console.log(t);
-                                    }
-                                }), wx.setNavigationBarTitle({
-                                    title: t.data.pt_name
-                                }), wx.setStorageSync("color", t.data.color), wx.setNavigationBarColor({
-                                    frontColor: "#ffffff",
-                                    backgroundColor: wx.getStorageSync("color"),
-                                    animation: {
-                                        duration: 0,
-                                        timingFunc: "easeIn"
-                                    }
-                                });
-                                n = wx.getStorageSync("city");
-                                c.setData({
-                                    System: t.data,
-                                    bkarr: a
-                                }), c.refresh(), c.seller();
-                            }
-                        });
-                    }
-                });
+        });
+        app.util.request({
+            url: "entry/wxapp/map",
+            cachetime: "0",
+            data: {
+                op: wx.getStorageSync("tude_cache")
             },
-            fail: function(t) {
-                wx.getSetting({
-                    success: function(t) {
-                        0 == t.authSetting["scope.userLocation"] && wx.openSetting({
-                            success: function(t) {}
-                        });
-                    }
-                });
+            success: function(i) {
+                console.log(i);
+                let system = wx.getStorageSync("System");
+                // if(system){
+                    // c.loadSystem(system,i);
+                // }else{
+                    app.util.request({
+                        url: "entry/wxapp/System",
+                        cachetime: "0",
+                        success: function(t) {
+                            c.loadSystem(t.data,i);
+                            // , c.refresh(), c.seller();
+                        }
+                    });
+                // }
+                
             }
-        })
-        , app.util.request({
+        });
+
+        app.util.request({
             url: "entry/wxapp/Views",
             cachetime: "0",
             success: function(t) {
@@ -415,7 +312,8 @@ Page({
                     store: t.data.slice(0, 6)
                 });
             }
-        }), app.util.request({
+        })
+        app.util.request({
             url: "entry/wxapp/Ad",
             cachetime: "0",
             data: {
@@ -433,7 +331,8 @@ Page({
                     zjggbk: i
                 });
             }
-        }), app.util.request({
+        })
+        app.util.request({
             url: "entry/wxapp/news",
             cachetime: "0",
             data: {
@@ -447,7 +346,107 @@ Page({
                 });
             }
         })
-        , app.util.request({
+        app.util.request({
+            url: "entry/wxapp/GetNav",
+            cachetime: "0",
+            success: function(t) {
+                console.log(t);
+                var e = t.data;
+                e.length <= 5 ? s.setData({
+                    height: 150
+                }) : 5 < e.length && s.setData({
+                    height: 300
+                });
+                for (var a = [], n = 0, i = e.length; n < i; n += 10) a.push(e.slice(n, n + 10));
+                s.setData({
+                    nav: a,
+                    navs: e
+                });
+            }
+        });
+    },
+    loadSystem: function(t,i){
+        let c = this;
+       
+        console.log(t), "1" == t.dw_more && c.setData({
+            dwcity: i.data.result.address_component.district
+        }), "2" == t.dw_more && c.setData({
+            dwcity: i.data.result.address_component.city
+        });
+        c.refresh();
+        c.seller();
+
+
+        var a = [ "最新信息" ];
+        "1" == t.is_sjrz && a.push("热门商家"), "1" == t.is_pageopen && a.push("黄页114"), 
+        "1" == t.is_pcfw && a.push("顺风车"), console.log(a), wx.setStorageSync("System", t), 
+        1 == t.many_city ? (wx.setStorageSync("city", t.cityname), c.setData({
+            city: t.cityname
+        })) : (console.log(wx.getStorageSync("city_type")), 1 != wx.getStorageSync("city_type") ? (wx.setStorageSync("city", c.data.dwcity), 
+        c.setData({
+            city: c.data.dwcity
+        })) : (c.setData({
+            city: wx.getStorageSync("city")
+        }), console.log("choosecity")));
+        var n = wx.getStorageSync("city");
+        console.log(n), app.util.request({
+            url: "entry/wxapp/SaveHotCity",
+            cachetime: "0",
+            data: {
+                cityname: n,
+                user_id: wx.getStorageSync("users").id
+            },
+            success: function(t) {
+                console.log(t);
+            }
+        }), wx.setNavigationBarTitle({
+            title: t.pt_name
+        }), wx.setStorageSync("color", t.color), wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: wx.getStorageSync("color"),
+            animation: {
+                duration: 0,
+                timingFunc: "easeIn"
+            }
+        });
+        n = wx.getStorageSync("city");
+        c.setData({
+            System: t,
+            bkarr: a
+        })
+
+        var e = t.gd_key;
+        "" == e && wx.showModal({
+            title: "配置提示",
+            content: "请在后台配置高德地图的key",
+            showCancel: !0,
+            cancelText: "取消",
+            confirmText: "确定",
+            success: function(t) {},
+            fail: function(t) {},
+            complete: function(t) {}
+        }), new (require("../amap-wx.js").AMapWX)({
+            key: e
+        }).getWeather({
+            success: function(t) {
+                var e, a, n = t.liveData.city, i = t.liveData.weather, o = t.liveData.reporttime.slice(0, 10), s = (0 == (e = new Date(o)).getDay() && (a = "星期日"), 
+                1 == e.getDay() && (a = "星期一"), 2 == e.getDay() && (a = "星期二"), 3 == e.getDay() && (a = "星期三"), 
+                4 == e.getDay() && (a = "星期四"), 5 == e.getDay() && (a = "星期五"), 6 == e.getDay() && (a = "星期六"), 
+                a), r = t.temperature.data;
+                c.setData({
+                    area: n,
+                    reporttime: o,
+                    weather: i,
+                    w1: s,
+                    temperature: r
+                });
+            },
+            fail: function(t) {}
+        });
+    },
+    getNav: function(t){
+        let s = this;
+        app.util.request({
             url: "entry/wxapp/GetNav",
             cachetime: "0",
             success: function(t) {
@@ -863,9 +862,10 @@ Page({
         }), wx.removeStorageSync("city_type");
     },
     onShow: function() {
-        
+        // this.refresh();
+        // this.seller();        
 
-
+        console.log("onShow:"+new Date());
     },
     onHide: function() {},
     onUnload: function() {

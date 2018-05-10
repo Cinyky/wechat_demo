@@ -1,0 +1,208 @@
+{
+    "pages": [
+        "zh_tcwq/pages/index/index",
+        "we7/pages/index/index",
+        "zh_tcwq/pages/type/type",
+        "zh_tcwq/pages/fabu/fabu/fabu",
+        "zh_tcwq/pages/store/store",
+        "zh_tcwq/pages/logs/logs"
+    ],
+    "subpackages":[
+        {
+            "root": "zh_tcwq/pages/",
+            "pages":[
+                "index/city",
+                "notice/notice",
+                "Collection/Collection",
+                "car/car",
+                "index/search",
+                "settled/settled",
+                "marry/marry",
+                "handinfo/handinfo",
+                "secondhand/secondhand",
+                "content/content",
+                "partner/partner",
+                "infodetial/infodetial"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/distribution/",
+            "pages":[
+                "yaoqing",
+                "wdtd",
+                "symx",
+                "fxyj",
+                "txmx",
+                "jrhhr"
+                
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/yellow_page/",
+            "pages":[
+                "settled",
+                "yellow",
+                "yellowinfo",
+                "releace",
+                "active",
+                "activeinfo",
+                "yellowtype",
+                "mine_yellow"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/store/",
+            "pages":[
+                "business",
+                "help"
+            ]
+        },
+        {
+            "root": "we7/pages/",
+            "pages":[
+                "user/index/index"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/fabu/",
+            "pages":[
+                "knows/knows",
+                "edit/edit"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/logs/",
+            "pages":[
+                "city_man",
+                "publish",
+                "index",
+                "income",
+                "detailed",
+                "cash",
+                "order",
+                "bbaa",
+                "system",
+                "mine_car",
+                "order_info",
+                "hxorder"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/shun/",
+            "pages":[
+                "shun",
+                "shunfabu/shunfabu",
+                "shuninfo/shuninfo",
+                "shuninfo2/shuninfo2"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/sellerinfo/",
+            "pages":[
+                "shop",
+                "place_order",
+                "good_info",
+                "sellerinfo"
+            ]
+        },
+     
+        {
+            "root": "zh_tcwq/pages/message/",
+            "pages":[
+                "message",
+                "footprint",
+                "release",
+                "message_info"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/mypost/",
+            "pages":[
+                "modify",
+                "mypost"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/redbag/",
+            "pages":[
+                "redinfo/redinfo",
+                "sent",
+                "welfare",
+                "redbag",
+                "merchant",
+                "customer/customer",
+                "wallet/wallet",
+                "modify",
+                "commodity",
+                "mine_order",
+                "mine_order_info",
+                "redinfo/see_rob"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/spzx/",
+            "pages":[
+                "spzx",
+                "spzxinfo"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/qd/",
+            "pages":[
+                "qd",
+                "pm"
+            ]
+        },
+        {
+            "root": "zh_tcwq/pages/integral/",
+            "pages":[
+                "integralinfo/integralinfo",
+                "record/record",
+                "integral",
+                "myintegral"
+            ]
+        }
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ED414A",
+        "navigationBarTitleText": "同城微圈",
+        "navigationBarTextStyle": "#fff"
+    },
+    "tabBar": {
+        "selectedColor": "#ED414A",
+        "color": "#333",
+        "list": [
+            {
+                "pagePath": "zh_tcwq/pages/index/index",
+                "text": "首页",
+                "iconPath": "zh_tcwq/pages/image/shouye.png",
+                "selectedIconPath": "zh_tcwq/pages/image/shouye-foucs.png"
+            },
+            {
+                "pagePath": "zh_tcwq/pages/type/type",
+                "text": "分类信息",
+                "iconPath": "zh_tcwq/pages/image/zixun.png",
+                "selectedIconPath": "zh_tcwq/pages/image/zixun1.png"
+            },
+            {
+                "pagePath": "zh_tcwq/pages/fabu/fabu/fabu",
+                "text": "发布",
+                "iconPath": "zh_tcwq/pages/image/fabu.png",
+                "selectedIconPath": "zh_tcwq/pages/image/fabu.png"
+            },
+            {
+                "pagePath": "zh_tcwq/pages/store/store",
+                "text": "商家",
+                "iconPath": "zh_tcwq/pages/image/dianpu.png",
+                "selectedIconPath": "zh_tcwq/pages/image/dianpu-foucs.png"
+            },
+            {
+                "pagePath": "zh_tcwq/pages/logs/logs",
+                "text": "我的",
+                "iconPath": "zh_tcwq/pages/image/wode.png",
+                "selectedIconPath": "zh_tcwq/pages/image/wode-foucs.png"
+            }
+        ]
+    }
+}

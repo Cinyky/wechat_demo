@@ -1,5 +1,12 @@
 App({
-    onLaunch: function() {},
+    onLaunch: function() {
+        console.log("onlauncha:"+new Date());
+        console.log("onlaunch getLocation");
+        this.getLocation();
+        // console.log("onlaunch getUser");
+        // this.getUser(console.log);
+
+    },
     onShow: function() {},
     onHide: function() {
         console.log(getCurrentPages());
@@ -53,6 +60,16 @@ App({
                         });
                     }
                 });
+            }
+        });
+    },
+    getLocation:function(t){
+        wx.getLocation({
+            type: "wgs84",
+            success: function(t) {
+                wx.setStorageSync("Location", t);
+                let e = t.latitude + "," + t.longitude;
+                wx.setStorageSync("tude_cache", e);
             }
         });
     },
