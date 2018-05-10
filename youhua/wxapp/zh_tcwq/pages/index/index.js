@@ -170,7 +170,7 @@ Page({
         });
     },
     onLoad: function(t) {
-        console.log("onLoad"), console.log(t);
+        console.log("onLoad："+new Date()), console.log(t);
         var e = decodeURIComponent(t.scene);
         if (console.log("scene", e), "undefined" != e) var a = e;
         if (null != t.userid) {
@@ -181,36 +181,49 @@ Page({
             fxzuid: a
         });
         var n = this;
-        wx.getLocation({
-            type: "wgs84",
-            success: function(t) {
-                t.latitude, t.longitude, t.speed, t.accuracy;
-            }
-        }), wx.getSystemInfo({
-            success: function(t) {
-                n.setData({
-                    windowHeight: t.windowHeight
-                }), console.log(t);
-            }
-        }), app.util.request({
-            url: "entry/wxapp/Url2",
-            cachetime: "0",
-            success: function(t) {
-                wx.setStorageSync("url2", t.data);
-            }
-        }), app.util.request({
-            url: "entry/wxapp/Url",
-            cachetime: "0",
-            success: function(t) {
-                console.log(t), wx.setStorageSync("url", t.data), n.setData({
-                    url: t.data
-                });
-            }
-        }), n.reload();
+        let url = app.siteInfo.url;
+        let url2 = app.siteInfo.url2;
+        wx.setStorageSync("url", url);
+        wx.setStorageSync("url2", url2)
+        n.setData({
+            url: url
+        });
+        // wx.getLocation({
+        //     type: "wgs84",
+        //     success: function(t) {
+        //         t.latitude, t.longitude, t.speed, t.accuracy;
+        //     }
+        // }), 
+        // wx.getSystemInfo({
+        //     success: function(t) {
+        //         n.setData({
+        //             windowHeight: t.windowHeight
+        //         }), console.log(t);
+        //     }
+        // }), 
+        // app.util.request({
+        //     url: "entry/wxapp/Url2",
+        //     cachetime: "0",
+        //     success: function(t) {
+        //         wx.setStorageSync("url2", t.data);
+        //     }
+        // }), 
+        // app.util.request({
+        //     url: "entry/wxapp/Url",
+        //     cachetime: "0",
+        //     success: function(t) {
+        //         console.log(t), wx.setStorageSync("url", t.data), n.setData({
+        //             url: t.data
+        //         });
+        //     }
+        // }), 
+        
+        n.reload();
     },
     reload: function(t) {
         var c = this, i = this.data.fxzuid;
-        console.log(i), wx.login({
+        console.log(i)
+        , wx.login({
             success: function(t) {
                 var e = t.code;
                 wx.setStorageSync("code", e), wx.getUserInfo({
@@ -265,9 +278,11 @@ Page({
                     }
                 });
             }
-        }), wx.getLocation({
+        })
+        , wx.getLocation({
             type: "wgs84",
             success: function(t) {
+                c.print("getLocation success");
                 wx.setStorageSync("Location", t);
                 var e = t.latitude + "," + t.longitude;
                 app.util.request({
@@ -277,10 +292,12 @@ Page({
                         op: e
                     },
                     success: function(i) {
+                        c.print("entry/wxapp/map success");
                         console.log(i), app.util.request({
                             url: "entry/wxapp/System",
                             cachetime: "0",
                             success: function(t) {
+                                c.print("entry/wxapp/System success");
                                 console.log(t), "1" == t.data.dw_more && c.setData({
                                     dwcity: i.data.result.address_component.district
                                 }), "2" == t.data.dw_more && c.setData({
@@ -334,6 +351,7 @@ Page({
                                         user_id: wx.getStorageSync("users").id
                                     },
                                     success: function(t) {
+                                        c.print("entry/wxapp/SaveHotCity success");
                                         console.log(t);
                                     }
                                 }), wx.setNavigationBarTitle({
@@ -365,7 +383,8 @@ Page({
                     }
                 });
             }
-        }), app.util.request({
+        })
+        , app.util.request({
             url: "entry/wxapp/Views",
             cachetime: "0",
             success: function(t) {
@@ -375,7 +394,8 @@ Page({
                     views: e
                 });
             }
-        }), app.util.request({
+        })
+        , app.util.request({
             url: "entry/wxapp/Num",
             cachetime: "0",
             success: function(t) {
@@ -385,7 +405,12 @@ Page({
             }
         });
     },
+    print: function (t){
+        console.log("cyylog--"+t,":"+new Date());
+    },
     refresh: function(t) {
+        let c = this;
+        c.print("refresh start");
         var s = this, e = wx.getStorageSync("city");
         app.util.request({
             url: "entry/wxapp/Storelist",
@@ -394,6 +419,7 @@ Page({
                 cityname: e
             },
             success: function(t) {
+                c.print("entry/wxapp/Storelist success");
                 t.data.length <= 5 ? s.setData({
                     store: t.data
                 }) : s.setData({
@@ -407,6 +433,7 @@ Page({
                 cityname: e
             },
             success: function(t) {
+                c.print("entry/wxapp/Ad success");
                 console.log(t);
                 var e = [], a = [], n = [], i = [];
                 for (var o in t.data) 1 == t.data[o].type && e.push(t.data[o]), 5 == t.data[o].type && a.push(t.data[o]), 
@@ -425,16 +452,19 @@ Page({
                 cityname: e
             },
             success: function(t) {
+                c.print("entry/wxapp/news success");
                 var e = [];
                 for (var a in t.data) 1 == t.data[a].type && e.push(t.data[a]);
                 s.setData({
                     msgList: e
                 });
             }
-        }), app.util.request({
+        })
+        , app.util.request({
             url: "entry/wxapp/GetNav",
             cachetime: "0",
             success: function(t) {
+                c.print("entry/wxapp/GetNav success");
                 console.log(t);
                 var e = t.data;
                 e.length <= 5 ? s.setData({
@@ -846,7 +876,11 @@ Page({
             first: 1
         }), wx.removeStorageSync("city_type");
     },
-    onShow: function() {},
+    onShow: function() {
+        
+
+
+    },
     onHide: function() {},
     onUnload: function() {
         wx.removeStorageSync("city_type");
